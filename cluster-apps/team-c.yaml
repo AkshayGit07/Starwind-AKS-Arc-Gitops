@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: starwind-c
+  labels:
+    app: starwind-c
+  namespace: starwind-c
+spec:
+  selector:
+    matchLabels:
+      app: starwind-c
+  template:
+    metadata:
+      labels:
+        app: starwind-c
+    spec:
+      containers:
+      - name: starwind-c
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:  
+            limits:  
+              cpu: 100m  
+              memory: 10Mi  
+            requests:  
+              cpu: 100m  
+              memory: 10Mi  
+        volumeMounts:  
+          - mountPath: /usr/share/nginx/html
+            name: html  
+      volumes:  
+        - name: html
+          configMap:
+            name: nginx-index-html

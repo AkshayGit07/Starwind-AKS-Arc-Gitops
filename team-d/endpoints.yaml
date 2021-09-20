@@ -1,0 +1,63 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: starwind-d
+  labels:
+    app: starwind-d
+  namespace: starwind-d
+spec:
+  selector:
+    matchLabels:
+      app: starwind-d
+  template:
+    metadata:
+      labels:
+        app: starwind-d
+    spec:
+      containers:
+      - name: starwind-d
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:  
+            limits:  
+              cpu: 100m  
+              memory: 10Mi  
+            requests:  
+              cpu: 100m  
+              memory: 10Mi  
+        volumeMounts:  
+          - mountPath: /usr/share/nginx/html
+            name: html  
+      volumes:  
+        - name: html
+          configMap:
+            name: nginx-index-html
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-index-html
+  namespace: starwind-d
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>Starwind</title>
+      </head>
+      <body>Hello Starwind from Team C :D</body>
+    </html>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: starwind-d
+  namespace: starwind-d
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    app: starwind-d

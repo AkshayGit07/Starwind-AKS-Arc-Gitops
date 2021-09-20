@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-index-html
+  namespace: starwind-c
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>Starwind</title>
+      </head>
+      <body>Hello Starwind from Team C :D</body>
+    </html>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: starwind-c
+  namespace: starwind-c
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    app: starwind-c
