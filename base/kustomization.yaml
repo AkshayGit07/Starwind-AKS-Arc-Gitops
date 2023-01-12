@@ -6,4 +6,4 @@ resources:
 - ../team-a/endpoints.yaml
  
 patchesStrategicMerge:
- - ./replicapatch.yaml
+ - replicapatch.yaml
