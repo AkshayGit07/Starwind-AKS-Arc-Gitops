@@ -1,6 +1,4 @@
 apiversion: apps/v1
 kind: Deployment
-metadata:
- name: starwind-a
 spec:
  replicas:3
