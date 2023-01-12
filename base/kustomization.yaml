@@ -6,6 +6,9 @@ metadata:
 commonLabels:
   app: starwind-a
 resources:
- - replicapatch.yaml
+ - cluster-apps/arc-k8s-demo.yaml
+ - namespaces/team-a.yaml
+ - team-a/endpoints.yaml
+ 
 patchesStrategicMerge:
  - replicapatch.yaml
