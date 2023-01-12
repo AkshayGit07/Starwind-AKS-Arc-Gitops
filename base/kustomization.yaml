@@ -6,12 +6,11 @@ metadata:
 commonLabels:
   app: starwind-a
 
-resources:
- - https://github.com/AkshayGit07/Starwind-AKS-Arc-Gitops/blob/ec951b46243751ccd3de165cc148cf92d0f4883a/cluster-apps/arc-k8s-demo.yaml
- - https://github.com/AkshayGit07/Starwind-AKS-Arc-Gitops/blob/ec951b46243751ccd3de165cc148cf92d0f4883a/namespaces/team-a.yaml
- - https://github.com/AkshayGit07/Starwind-AKS-Arc-Gitops/blob/ec951b46243751ccd3de165cc148cf92d0f4883a/team-a/endpoints.yaml
- - https://github.com/AkshayGit07/Starwind-AKS-Arc-Gitops/blob/bb64ff22bbe7cca8681899f7aa503cc907a7996c/base/replicapatch.yaml
+bases:
+- cluster-apps/arc-k8s-demo.yaml
+- namespaces/team-a.yaml
+- team-a/endpoints.yaml
 
 patchesStrategicMerge:
  - replicapatch.yaml
- - https://github.com/AkshayGit07/Starwind-AKS-Arc-Gitops/blob/bb64ff22bbe7cca8681899f7aa503cc907a7996c/base/replicapatch.yaml
+ 
