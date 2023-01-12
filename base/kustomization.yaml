@@ -5,6 +5,7 @@ metadata:
 
 commonLabels:
   app: starwind-a
- 
- resources:
- -replicapatch.yaml
+resources:
+ - replicapatch.yaml
+patchesStrategicMerge:
+ - replicapatch.yaml
