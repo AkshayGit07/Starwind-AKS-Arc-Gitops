@@ -4,4 +4,4 @@ metadata:
   name: starwind-a
   namespace: starwind-a
 spec:
-  replicas: 2
+  replicas: 3
