@@ -4,6 +4,5 @@ metadata:
   name: starwind-a
   labels:
     app: starwind-a
-  namespace: starwind-a
 spec:
   replicas: 4
