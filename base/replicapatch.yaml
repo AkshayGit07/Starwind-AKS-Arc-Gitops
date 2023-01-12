@@ -6,7 +6,4 @@ metadata:
     app: starwind-a
   namespace: starwind-a
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: starwind-a
+  replicas: 4
