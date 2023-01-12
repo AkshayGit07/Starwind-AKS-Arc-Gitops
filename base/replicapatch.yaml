@@ -2,7 +2,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: starwind-a
-  labels:
-    app: starwind-a
+  namespace: starwind-a
 spec:
-  replicas: 4
+  replicas: 2
